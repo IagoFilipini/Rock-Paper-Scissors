@@ -22,6 +22,7 @@ function playGame() {
     const paper = document.querySelector(".paper-btn");
     const scissors = document.querySelector(".scissors-btn");
     const div = document.querySelector("#resultDisplay");
+    const runningScore = document.querySelector("#runningScore")
 
     rock.addEventListener('click', () => {
         playRound("rock", getComputerChoice());
@@ -61,6 +62,7 @@ function playGame() {
         }
 
         console.log(`Score → human: ${humanScore} x computer: ${computerScore}`); //shows running game score
+        runningScore.textContent = `Score → human: ${humanScore} x computer: ${computerScore}`;
         console.log("---------------------");
 
     }
