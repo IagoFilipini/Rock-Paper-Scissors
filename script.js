@@ -1,6 +1,6 @@
-function getHumanChoice() { //shows a prompt screen for user answer
-    return choice = prompt("Type rock, paper or scissors: ");
-}
+// function getHumanChoice() { //shows a prompt screen for user answer
+//     return choice = prompt("Type rock, paper or scissors: ");
+// }
 
 function getComputerChoice() { //generate a random number between 0 to 2 and determine their role (rock,paper or scissor) by its number
     let randomChoice = Math.floor(Math.random() * 3);
@@ -14,9 +14,25 @@ function getComputerChoice() { //generate a random number between 0 to 2 and det
 }
 
 function playGame() {
-    // //initiate both scores
+    //initiate both scores
     let humanScore = 0;
     let computerScore = 0;
+
+    const rock = document.querySelector(".rock-btn");
+    const paper = document.querySelector(".paper-btn");
+    const scissors = document.querySelector(".scissors-btn");
+
+    rock.addEventListener('click', () => {
+        playRound("rock", getComputerChoice());
+    });
+
+    paper.addEventListener('click', () => {
+        playRound("paper", getComputerChoice());
+    });
+
+    scissors.addEventListener('click', () => {
+        playRound("scissors", getComputerChoice());
+    });
 
     function playRound(humanChoice, computerChoice) {
         const human = humanChoice.toLowerCase(); //makes humanChoice value case-insensitive
@@ -45,11 +61,11 @@ function playGame() {
 
     }
 
-    for (let i = 0; i < 5; i++) { //calls the getHumanChoice() and getComputerChoice() 5 times for it to generate different results
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection); //pass the result to playRound() so it can generate the win/lose condition
-    }
+    // for (let i = 0; i < 5; i++) { //calls the getHumanChoice() and getComputerChoice() 5 times for it to generate different results
+    //     const humanSelection = getHumanChoice();
+    //     const computerSelection = getComputerChoice();
+    //     playRound(humanSelection, computerSelection); //pass the result to playRound() so it can generate the win/lose condition
+    // }
 
     console.log("FINAL RESULT:");
     console.log(`human: ${humanScore} x computer: ${computerScore}`); //shows final score
