@@ -21,6 +21,7 @@ function playGame() {
     const rock = document.querySelector(".rock-btn");
     const paper = document.querySelector(".paper-btn");
     const scissors = document.querySelector(".scissors-btn");
+    const div = document.querySelector("#resultDisplay");
 
     rock.addEventListener('click', () => {
         playRound("rock", getComputerChoice());
@@ -48,11 +49,14 @@ function playGame() {
             (human === "scissors" && computerChoice === "rock")
         ) {
             console.log("computer WIN");
+            div.textContent = "COMPUTER WIN";
             computerScore++;
         } else if (human === computerChoice) {
             console.log("TIE");
+            div.textContent = "TIE";
         } else {
             console.log("human WIN");
+            div.textContent = "HUMAN WIN";
             humanScore++;
         }
 
