@@ -19,6 +19,17 @@ function playGame() {
     const div = document.querySelector("#resultDisplay");
     const runningScore = document.querySelector("#runningScore")
     const finalScore = document.querySelector("#finalScore");
+    const restartBtn = document.querySelector("#restartBtn");
+
+    restartBtn.addEventListener('click', resetGame);
+
+    function resetGame() {
+        humanScore = 0;
+        computerScore = 0;
+        div.textContent = "";
+        runningScore.textContent = "";
+        finalScore.textContent = "";
+    }
 
     rock.addEventListener('click', () => {
         playRound("rock", getComputerChoice());
